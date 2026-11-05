@@ -72,3 +72,5 @@ jobs:
           echo "OS du runner : $RUNNER_OS"
           echo "Branche source PR : $HEAD_REF"
           echo "Branche cible PR : $BASE_REF"
+      - name: Afficher le contexte GitHub JSON
+        run: echo '${{ toJson(github) }}'
