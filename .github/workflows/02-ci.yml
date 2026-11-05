@@ -1,7 +1,5 @@
 name: CI
 on: [push, pull_request]
-env:
-  APP_NAME: fastapi-starter
 
 jobs:
   lint:
@@ -57,6 +55,7 @@ jobs:
         run: pytest
       - name: Afficher les contextes
         env:
+          APP_NAME: fastapi-starter
           ACTOR: ${{ github.actor }}
           EVENT_NAME: ${{ github.event_name }}
           BRANCH: ${{ github.ref }}
