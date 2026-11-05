@@ -1,5 +1,8 @@
 name: CI
-on: [push]
+on: [push, pull_request]
+env:
+  APP_NAME: fastapi-starter
+
 jobs:
   lint:
     name: Lint - Ruff
@@ -52,3 +55,21 @@ jobs:
           python -m pip install -r requirements-dev.txt
       - name: Exécuter les tests
         run: pytest
+      - name: Afficher les contextes
+        env:
+          ACTOR: ${{ github.actor }}
+          EVENT_NAME: ${{ github.event_name }}
+          BRANCH: ${{ github.ref }}
+          COMMIT_SHA: ${{ github.sha }}
+          RUNNER_OS: ${{ runner.os }}
+          HEAD_REF: ${{ github.head_ref }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          echo "Application : $APP_NAME"
+          echo "Acteur : $ACTOR"
+          echo "Événement : $EVENT_NAME"
+          echo "Branche / Référence : $BRANCH"
+          echo "SHA du commit : $COMMIT_SHA"
+          echo "OS du runner : $RUNNER_OS"
+          echo "Branche source PR : $HEAD_REF"
+          echo "Branche cible PR : $BASE_REF"
