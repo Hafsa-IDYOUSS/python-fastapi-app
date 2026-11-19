@@ -51,3 +51,7 @@ jobs:
         run: |
           echo "Full version: ${{ needs.build.outputs.full_version }}"
           echo "Environment: ${{ inputs.environment }}"
+  call-greeting:
+    uses: ./.github/workflows/greeting.yml
+    with:
+      recipient: ${{ inputs.environment }}
