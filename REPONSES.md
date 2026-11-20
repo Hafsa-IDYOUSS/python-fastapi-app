@@ -19,3 +19,7 @@ actions/checkout récupère les fichiers du dépôt dans l'espace de travail du 
 ### Q7. Pourquoi shell: bash est-il obligatoire sur les steps run d'une action composite ?
 
 Dans une action composite, chaque step utilisant run doit préciser explicitement le shell à utiliser. shell: bash indique que les commandes seront exécutées avec Bash, contrairement aux steps classiques d'un workflow qui peuvent utiliser un shell par défaut.
+
+## Partie 4 — Comparaison des temps d'exécution
+
+L'action composite s'est exécutée en 1 seconde, contre 2 secondes pour l'action Docker. Dans ce test, l'action composite est donc plus rapide, car elle exécute directement les commandes sur le runner, tandis que l'action Docker nécessite la préparation et le lancement d'un conteneur.
