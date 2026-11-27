@@ -26,3 +26,9 @@ La combinaison Python 3.14 est ajoutée par include, après l'application de exc
 
 Avec fail-fast: true, l'échec d'un job non expérimental peut entraîner l'annulation des autres jobs de la matrice encore en cours ou en attente. Avec fail-fast: false, tous les jobs continuent leur exécution indépendamment des échecs des autres jobs. On choisit true pour économiser les ressources et obtenir un retour rapide sur un échec bloquant.
 On choisit false pour obtenir les résultats de toutes les combinaisons et analyser les problèmes de compatibilité.
+
+## Q5 – Donnez deux raisons d'utiliser max-parallel en entreprise
+
+1. Limiter la consommation des ressources CI et maîtriser les coûts d'exécution.
+
+2. Éviter de surcharger les runners ou les services partagés utilisés par plusieurs jobs.
