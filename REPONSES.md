@@ -21,3 +21,8 @@ La matrice génère 6 jobs :
 ### Q3 – Que se passerait-il si vous tentiez d'exclure la combinaison 3.14 ? Pourquoi ?
 
 La combinaison Python 3.14 est ajoutée par include, après l'application de exclude. Elle ne peut donc pas être supprimée par exclude dans cette configuration car exclude agit sur les combinaisons de base avant l'ajout de la nouvelle combinaison par include.
+
+### Q4 – Quelle est la différence observée ? Dans quel cas choisiriez-vous true ? false ?
+
+Avec fail-fast: true, l'échec d'un job non expérimental peut entraîner l'annulation des autres jobs de la matrice encore en cours ou en attente. Avec fail-fast: false, tous les jobs continuent leur exécution indépendamment des échecs des autres jobs. On choisit true pour économiser les ressources et obtenir un retour rapide sur un échec bloquant.
+On choisit false pour obtenir les résultats de toutes les combinaisons et analyser les problèmes de compatibilité.
